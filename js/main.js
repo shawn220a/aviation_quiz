@@ -1,3 +1,5 @@
+const startBtn = document.querySelector("#start");
+
 const questions = [
   {
     "title": "What makes up a Thunderstorm:",
@@ -46,4 +48,8 @@ const questions = [
   }
 ];
 
-console.log(questions);
+function startQuiz() {
+  console.log(questions);
+}
+
+startBtn.addEventListener("click", startQuiz);
