@@ -51,18 +51,18 @@ console.log(questions[0].title);
 
 
 
-// i = 0;
-// while ( i < 10 || timer !== 0) {
+i = 0;
+if ( i < 10 || timer !== 0) {
 
-  // document.querySelector("#titleHTML").innerHTML = questions[0].title;
+  document.querySelector("#titleHTML").innerHTML = questions[i].title;
 
-  // var output = '';
+  var output = '';
 
-  //     for (var i = 0; i < 3; i++) {
-  //       output += '<button>' + questions[0].choices[i] + '</button>' + '</br>';
-  //       output.classList.add('answer' +i);
-  //     }
+      for (var j = 0; j < 3; j++) {
+        output += '<button>' + questions[i].choices[j] + '</button>' + '</br>';
+        output.classList.add('answer' + j);
+      }
   
-  //     document.querySelector(".choices").innerHTML = output;
-  // i++;
-// }
+      document.querySelector(".choices").innerHTML = output;
+  i++;
+}
