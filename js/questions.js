@@ -52,17 +52,13 @@ console.log(questions[0].title);
 
 
 i = 0;
-if ( i < 10 || timer !== 0) {
 
-  document.querySelector("#titleHTML").innerHTML = questions[i].title;
+document.querySelector("#titleHTML").innerHTML = questions[i].title;
 
-  var output = '';
+var output = '';
 
-      for (var j = 0; j < 3; j++) {
-        output += '<button>' + questions[i].choices[j] + '</button>' + '</br>';
-        output.classList.add('answer' + j);
-      }
-  
-      document.querySelector(".choices").innerHTML = output;
-  i++;
+for (var j = 0; j < 3; j++) {
+  output += '<button>' + questions[i].choices[j] + '</button>' + '</br>';
 }
+
+document.querySelector(".choices").innerHTML = output;
