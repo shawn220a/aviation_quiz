@@ -1,24 +1,33 @@
-h1 {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  background-color: slategrey;
 }
 
-p {
+.home {
+  justify-content: center;
+  margin: 20% 200px;
+  border: 3px solid black;
+  max-width: 960px;
+  background-color: skyblue;
+}
+
+.home h1 {
+  text-align: center;
+  background-color: skyblue;
+}
+
+.home p {
   text-align: center;
   margin: 0 20%;
+  background-color: skyblue;
 }
 
-.btn {
+.home .btn {
   display: block;
   margin: 10px auto 10px;
   font-size: large;
   width: 100px;
   height: 50px;
   background-color: aqua;
-}
-
-.home {
-  justify-content: center;
-  margin: 20% 200px;
-  border: 3px dashed black;
-  max-width: 960px;
 }
