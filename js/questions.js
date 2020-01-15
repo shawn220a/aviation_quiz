@@ -83,14 +83,14 @@ function isComplete() {
   if (i < questions.length) {
     loadQuestion();
   } else {
-    alert('score:' + score);
+    alert('score: ' + score);
   }
 }
 
 document.querySelector('#choices').addEventListener('click', function(e) {
   console.log(e.srcElement.dataset.answer);
   if (e.srcElement.dataset.answer === 'true'){
-    score++;
+    score += 10;
     console.log(score);
   }
   i++;
