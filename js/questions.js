@@ -55,10 +55,8 @@ i = 0;
 
 document.querySelector("#titleHTML").innerHTML = questions[i].title;
 
-var output = '';
+document.querySelector("#choiceOne").innerHTML = questions[i].choices[0];
+document.querySelector("#choiceTwo").innerHTML = questions[i].choices[1];
+document.querySelector("#choiceThree").innerHTML = questions[i].choices[2];
 
-for (var j = 0; j < 3; j++) {
-  output += '<button>' + questions[i].choices[j] + '</button>' + '</br>';
-}
 
-document.querySelector(".choices").innerHTML = output;
