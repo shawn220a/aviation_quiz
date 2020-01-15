@@ -59,23 +59,23 @@ while (i<questions.length) {
   document.querySelector("#choiceTwo").textContent = questions[i].choices[1];
   document.querySelector("#choiceThree").textContent = questions[i].choices[2];
   
-  // if(questions[i].choices[0] === questions[i].answer) {
-  //   oneChoice.setAttribute('data-answer', 'true');
-  // } else {
-  //   oneChoice.setAttribute('data-answer', 'false');
-  // }
+  if(questions[i].choices[0] === questions[i].answer) {
+    oneChoice.setAttribute('data-answer', 'true');
+  } else {
+    oneChoice.setAttribute('data-answer', 'false');
+  }
   
-  // if(questions[i].choices[1] === questions[i].answer) {
-  //   twoChoice.setAttribute('data-answer', 'true');
-  // } else {
-  //   twoChoice.setAttribute('data-answer', 'false');
-  // }
+  if(questions[i].choices[1] === questions[i].answer) {
+    twoChoice.setAttribute('data-answer', 'true');
+  } else {
+    twoChoice.setAttribute('data-answer', 'false');
+  }
   
-  // if(questions[i].choices[2] === questions[i].answer) {
-  //   threeChoice.setAttribute('data-answer', 'true');
-  // } else {
-  //   threeChoice.setAttribute('data-answer', 'false');
-  // }
+  if(questions[i].choices[2] === questions[i].answer) {
+    threeChoice.setAttribute('data-answer', 'true');
+  } else {
+    threeChoice.setAttribute('data-answer', 'false');
+  }
   console.log(oneChoice.getAttribute('data-answer'));
   console.log(twoChoice.getAttribute('data-answer'));
   console.log(threeChoice.getAttribute('data-answer'));
