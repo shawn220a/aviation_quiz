@@ -51,8 +51,9 @@ var twoChoice = document.querySelector("#choiceTwo");
 var threeChoice = document.querySelector("#choiceThree");
 
 i = 0;
+score = 0;
 
-while (i<questions.length) {
+function loadQuestion() {
   document.querySelector("#titleHTML").innerHTML = questions[i].title;
 
   document.querySelector("#choiceOne").textContent = questions[i].choices[0];
@@ -76,10 +77,24 @@ while (i<questions.length) {
   } else {
     threeChoice.setAttribute('data-answer', 'false');
   }
-  console.log(oneChoice.getAttribute('data-answer'));
-  console.log(twoChoice.getAttribute('data-answer'));
-  console.log(threeChoice.getAttribute('data-answer'));
-  i++;
 }
 
+function isComplete() {
+  if (i < questions.length) {
+    loadQuestion();
+  } else {
+    alert('score:' + score);
+  }
+}
 
+document.querySelector('#choices').addEventListener('click', function(e) {
+  console.log(e.srcElement.dataset.answer);
+  if (e.srcElement.dataset.answer === 'true'){
+    score++;
+    console.log(score);
+  }
+  i++;
+  isComplete();
+});
+
+loadQuestion();
