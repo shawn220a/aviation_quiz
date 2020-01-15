@@ -46,17 +46,40 @@
     }
   ]
 
-
-console.log(questions[0].title);
-
-
+var oneChoice = document.querySelector("#choiceOne");
+var twoChoice = document.querySelector("#choiceTwo");
+var threeChoice = document.querySelector("#choiceThree");
 
 i = 0;
 
-document.querySelector("#titleHTML").innerHTML = questions[i].title;
+while (i<questions.length) {
+  document.querySelector("#titleHTML").innerHTML = questions[i].title;
 
-document.querySelector("#choiceOne").innerHTML = questions[i].choices[0];
-document.querySelector("#choiceTwo").innerHTML = questions[i].choices[1];
-document.querySelector("#choiceThree").innerHTML = questions[i].choices[2];
+  document.querySelector("#choiceOne").textContent = questions[i].choices[0];
+  document.querySelector("#choiceTwo").textContent = questions[i].choices[1];
+  document.querySelector("#choiceThree").textContent = questions[i].choices[2];
+  
+  // if(questions[i].choices[0] === questions[i].answer) {
+  //   oneChoice.setAttribute('data-answer', 'true');
+  // } else {
+  //   oneChoice.setAttribute('data-answer', 'false');
+  // }
+  
+  // if(questions[i].choices[1] === questions[i].answer) {
+  //   twoChoice.setAttribute('data-answer', 'true');
+  // } else {
+  //   twoChoice.setAttribute('data-answer', 'false');
+  // }
+  
+  // if(questions[i].choices[2] === questions[i].answer) {
+  //   threeChoice.setAttribute('data-answer', 'true');
+  // } else {
+  //   threeChoice.setAttribute('data-answer', 'false');
+  // }
+  console.log(oneChoice.getAttribute('data-answer'));
+  console.log(twoChoice.getAttribute('data-answer'));
+  console.log(threeChoice.getAttribute('data-answer'));
+  i++;
+}
 
 
