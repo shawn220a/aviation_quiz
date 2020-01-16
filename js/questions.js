@@ -43,7 +43,28 @@
         "GPS position is reliable provided at least 3 GPS satellites are available"
       ],
       "answer": "the pilot has no assurance of the accuracy of the GPS position"
-    }
+    },
+    {
+      "title": "The correct method of stating 5,500 feet MSL to ATC is:",
+      "choices": [
+        "‘FIVE POINT FIVE’",
+        "‘FIFTY-FIVE HUNDRED FEET MSL’",
+        "‘FIVE THOUSAND FIVE HUNDRED’"
+      ],
+      "answer": "‘FIVE THOUSAND FIVE HUNDRED’"
+    },
+    {
+      "title": "Unless otherwise authorized two-way radio communications with Air Traffic Control are required for landings or takeoffs at all towered airports:",
+      "choices": [
+        "regardless of weather conditions",
+        "only when weather conditions are less than VFR",
+        "within Class D airspace only when weather conditions are less than VFR"
+      ],
+      "answer": "regardless of weather conditions"
+    },
+    {},
+    {},
+    {}
   ]
 
 var oneChoice = document.querySelector("#choiceOne");
