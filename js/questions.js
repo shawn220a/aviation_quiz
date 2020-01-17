@@ -97,10 +97,9 @@ let threeChoice = document.querySelector("#choiceThree");
 
 let timer = document.querySelector("#timer");
 
-i = 0;
-score = 0;
-
-// console.log(timer);
+let time = 20;
+let i = 0;
+let score = 0;
 
 function loadQuestion() {
   document.querySelector("#titleHTML").innerHTML = questions[i].title;
@@ -131,17 +130,34 @@ function loadQuestion() {
 function isComplete() {
   if (i < questions.length) {
     loadQuestion();
-  } else {
+  }
+  if(timer.textContent <= 0 || i > questions.length) {
     alert('score: ' + score);
   }
+  clearInterval(time);
 }
+
+function countDown() {
+  setInterval(function(){
+    time = time - 1;
+    // console.log(time);
+    if (time <= 0) {
+      isComplete();
+    }
+    timer.textContent = time;
+  }, 1000); 
+}
+
 
 document.querySelector('#choices').addEventListener('click', function(e) {
   if (e.srcElement.dataset.answer === 'true'){
     score += 10;
+  } else {
+    time = time - 10;
   }
   i++;
   isComplete();
 });
 
 loadQuestion();
+countDown();
