@@ -97,6 +97,9 @@ let threeChoice = document.querySelector("#choiceThree");
 
 let timer = document.querySelector("#timer");
 
+let playerList = localStorage.getItem('playerList');
+
+let player = [];
 let time = 20;
 let i = 0;
 let score = 0;
@@ -131,13 +134,14 @@ function isComplete() {
   if (i < questions.length && time != 0) {
     loadQuestion();
   } else {
-    let playerList = JSON.parse(localStorage.getItem('playerList'));
-    if (!playerList) {
-      playerList = [];
-    }
     let name = prompt('What is your name?');
-    localStorage.setItem('name', name);
-    localStorage.setItem('score', score);
+    player.push(name, score);
+    if (!playerList) {
+      player = [];
+    }
+    JSON.parse(playerList);
+    playerList.push(player);
+    localStorage.setItem('playerList', JSON.stringify(playerList));
     location.replace("../index.html");
   }
 }
@@ -147,6 +151,7 @@ function countDown() {
     time = time - 1;
     timer.textContent = time;
     if(time <= 0) {
+      time = 0;
       isComplete();
     }
   }, 1000);
