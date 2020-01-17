@@ -128,32 +128,43 @@ function loadQuestion() {
 }
 
 function isComplete() {
-  if (i < questions.length) {
+  if (i < questions.length && time != 0) {
     loadQuestion();
+  } else {
+    let playerList = JSON.parse(localStorage.getItem('playerList'));
+    if (!playerList) {
+      playerList = [];
+    }
+    let name = prompt('What is your name?');
+    localStorage.setItem('name', name);
+    localStorage.setItem('score', score);
+    location.replace("../index.html");
   }
-  if(timer.textContent <= 0 || i > questions.length) {
-    alert('score: ' + score);
-  }
-  clearInterval(time);
 }
 
 function countDown() {
   setInterval(function(){
     time = time - 1;
-    // console.log(time);
-    if (time <= 0) {
+    timer.textContent = time;
+    if(time <= 0) {
       isComplete();
     }
-    timer.textContent = time;
-  }, 1000); 
+  }, 1000);
 }
 
 
 document.querySelector('#choices').addEventListener('click', function(e) {
   if (e.srcElement.dataset.answer === 'true'){
     score += 10;
-  } else {
-    time = time - 10;
+  }
+  if (e.srcElement.dataset.answer === 'false'){
+    if (time > 10) {
+      time = time - 10;
+    }
+    else if (time < 10) {
+      time = 0;
+      isComplete();
+    }
   }
   i++;
   isComplete();
