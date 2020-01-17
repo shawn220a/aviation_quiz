@@ -91,13 +91,11 @@
     }
   ]
 
-var oneChoice = document.querySelector("#choiceOne");
-var twoChoice = document.querySelector("#choiceTwo");
-var threeChoice = document.querySelector("#choiceThree");
+let oneChoice = document.querySelector("#choiceOne");
+let twoChoice = document.querySelector("#choiceTwo");
+let threeChoice = document.querySelector("#choiceThree");
 
-// var timerValue = document.querySelector("#timer");
-
-// var timer = timerValue.innerText;
+let timer = document.querySelector("#timer");
 
 i = 0;
 score = 0;
@@ -139,10 +137,8 @@ function isComplete() {
 }
 
 document.querySelector('#choices').addEventListener('click', function(e) {
-  console.log(e.srcElement.dataset.answer);
   if (e.srcElement.dataset.answer === 'true'){
     score += 10;
-    console.log(score);
   }
   i++;
   isComplete();
