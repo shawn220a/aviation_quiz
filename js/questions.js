@@ -62,17 +62,47 @@
       ],
       "answer": "regardless of weather conditions"
     },
-    {},
-    {},
-    {}
+    {
+      "title": "Pre-takeoff briefing of passengers about the use of seat belts for a flight is the responsibility of:",
+      "choices": [
+        "all passengers",
+        "the pilot in command",
+        "the right seat pilot"
+      ],
+      "answer": "the pilot in command"
+    },
+    {
+      "title": "Your cousin wants you to take him flying. You must have made at least three takeoffs and three landings in your aircraft within the preceding:",
+      "choices": [
+        "90 days",
+        "60 days",
+        "30 days"
+      ],
+      "answer": "90 days"
+    },
+    {
+      "title": "A 100-hour inspection was due at 3302.5 hours. The 100-hour inspection was actually done at 3309.5 hours. When is the next 100-hour inspection due:",
+      "choices": [
+        "3312.5 hours",
+        "3395.5 hours",
+        "3402.5 hours"
+      ],
+      "answer": "3402.5 hours"
+    }
   ]
 
 var oneChoice = document.querySelector("#choiceOne");
 var twoChoice = document.querySelector("#choiceTwo");
 var threeChoice = document.querySelector("#choiceThree");
 
+// var timerValue = document.querySelector("#timer");
+
+// var timer = timerValue.innerText;
+
 i = 0;
 score = 0;
+
+// console.log(timer);
 
 function loadQuestion() {
   document.querySelector("#titleHTML").innerHTML = questions[i].title;
