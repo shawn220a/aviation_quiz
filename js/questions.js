@@ -99,7 +99,7 @@ let timer = document.querySelector("#timer");
 
 let timeVar;
 
-let time = 5;
+let time = 100;
 let i = 0;
 let score = 0;
 
