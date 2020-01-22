@@ -130,7 +130,7 @@ function loadQuestion() {
 }
 
 function changePage() {
-  location.replace("../index.html");
+  location.replace("index.html");
 }
 
 function addScore () {
