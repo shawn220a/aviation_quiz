@@ -99,9 +99,12 @@ let timer = document.querySelector("#timer");
 
 let timeVar;
 
-let time = 100;
+let time = 15;
+timer.textContent = time; // render default time to DOM
+
 let i = 0;
 let score = 0;
+let capturedScore = false; // Helper to let us know if score has been captured
 
 function loadQuestion() {
   document.querySelector("#titleHTML").innerHTML = questions[i].title;
@@ -139,7 +142,7 @@ function addScore () {
     playerList = [];
   }
   let player = [];
-  let name = prompt('What is your name?');
+  let name = prompt('Sorry you ran out of time!\nWhat is your name?');
   player.push(name, score);
   playerList.push(player);
   playerList = JSON.stringify(playerList);
@@ -148,37 +151,46 @@ function addScore () {
 }
 
 function isComplete() {
+  if(capturedScore) { // This will force code to stop proccessing once score is captured
+    return;
+  }
+
   if (i < questions.length && time != 0) {
     loadQuestion();
   } else {
-    addScore();
+    capturedScore = true; // set capture score to true
+    setTimeout(addScore,500);
   }
 }
 
 function countDown() {
   timeVar = setInterval(function(){
     time = time - 1;
-    timer.textContent = time;
-    if(time <= 0) {
+
+    if(time < 0) {
       time = 0;
+      timer.textContent = time;
       clearInterval(timeVar);
-      addScore();
+      isComplete();
     }
+
+    timer.textContent = time;
   }, 1000);
 }
 
 
 document.querySelector('#choices').addEventListener('click', function(e) {
-  if (e.srcElement.dataset.answer === 'true'){
+  if (e.srcElement.dataset.answer === 'true') {
     score += 10;
-  }
-  if (e.srcElement.dataset.answer === 'false'){
+  } else if (e.srcElement.dataset.answer === 'false') {
     if (time > 10) {
       time = time - 10;
     }
     else if (time < 10) {
       time = 0;
     }
+
+    timer.textContent = time;
   }
   i++;
   isComplete();
